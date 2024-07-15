@@ -1,4 +1,4 @@
-__version__ = '1.0.0'
+__version__ = '1.0.1'
 
 import io
 import os
@@ -164,7 +164,6 @@ class FID:
       if isinstance(reference, str):
         reference = pathlib.Path(reference)
       with reference.open('rb') as f:
-        # reference = np.load(f)
         reference = np.load(io.BytesIO(f.read()))
         self.ref = (reference['mu'], reference['sigma'])
     else:
