@@ -166,6 +166,7 @@ class FID:
       with reference.open('rb') as f:
         reference = np.load(io.BytesIO(f.read()))
         self.ref = (reference['mu'], reference['sigma'])
+        self.ref = jax.device_put(self.ref)
     else:
       self.ref = None
     model = InceptionV3()
